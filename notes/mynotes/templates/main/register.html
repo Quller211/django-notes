@@ -1,0 +1,12 @@
+{% extends 'main/list_of_notes.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <form class = 'col-3' method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-info" type = 'submit'>Зарегистрироваться</button>
+        <a href = "{% url 'start' %}" class="btn btn-info">Отмена</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'main/list_of_notes.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+<form method = 'post' class = 'col-3'>
+
+    {% csrf_token %}
+    
+    <h1>Авторизация</h1><br>
+
+    {% for el in form %}
+        {{ el }}<br>
+    {% endfor %}  
+    
+    
+    {{ form.non_field_errors }}
+    {{ form.username.errors }}
+    
+
+
+    <button class="btn btn-info" type = "submit">Войти</button>
+    <a href = '{% url "register" %}' class="btn btn-info">Регистрация</a>
+
+{% endblock %}

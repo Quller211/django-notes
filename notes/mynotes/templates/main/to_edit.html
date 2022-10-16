@@ -1,0 +1,12 @@
+{% extends 'main/list_of_notes.html' %}
+
+{% block title %}Редактировать заметку{% endblock %}
+
+{% block content %}
+    <form method = 'post' class = 'col-3'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button href = '{% url "list_of_notes" %}' class="btn btn-info" type = 'submit'>Редактировать</button>
+        <a href = '{% url "list_of_notes" %}' class = "btn btn-info">Отменить</a>
+    </form>
+{% endblock %}

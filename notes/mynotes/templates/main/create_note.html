@@ -1,0 +1,20 @@
+{% extends 'main/list_of_notes.html' %}
+{% load static %}
+
+{% block title %}Добавить записку{% endblock %}
+
+
+{% block content %}
+    <form method = 'post'>
+        <div class = 'col-3'>
+            <!-- <div class = 'mx-auto' style = "text-align: center;"> -->
+                {% csrf_token %}
+                {{ form.title }}<br>
+                {{ form.note_text }}<br>
+                <span>{{ error_text }}</span><br>
+                <button class="btn btn-info" type = 'submit'>Добавить заметку</button>
+                <a href = '{% url "list_of_notes" %}' class = "btn btn-info">Отменить</a>
+            <!-- </div> -->
+        </div>
+    </form>
+{% endblock %}
